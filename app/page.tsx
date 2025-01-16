@@ -9,7 +9,7 @@ import Contact from "./components/Contact";
 
 export default function Home() {
   return (
-    <main>
+    <main className='font-poppins'>
       <div className="p-1">
         <Navbar/>
         <Hero/>

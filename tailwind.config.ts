@@ -1,3 +1,4 @@
+import { Caveat } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -14,6 +15,8 @@ export default {
       },
       fontFamily: {
         cedarville: ['Cedarville Cursive', 'serif'],
+        poppins: ["Poppins", "serif"],
+        caveat: ["Caveat", "serif"],
       },
     },
   },
