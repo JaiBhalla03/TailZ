@@ -1,9 +1,44 @@
+'use client';
+
 import React from 'react'
+import { motion } from "framer-motion";
+import Paw from './util_components/Paw'
 
 export default function Contact() {
+    const pawVariants = {
+        hidden: { opacity: 0}, // Initial state (hidden)
+        visible: (index: number) => ({
+          opacity: 1,
+          y: 0,
+          transition: {
+            delay: index * 0.2, // Stagger appearance
+            duration: 2,
+            repeat: Infinity, // Infinite loop
+            repeatType: "reverse", // Alternate forward and backward motion
+            ease: "easeInOut",
+          },
+        }),
+      };
+    
+      const pawData = [
+        { size: 30, color: "#999999", styles: "right-[1.5rem] bottom-[1rem]", rotate: 20 },
+        { size: 30, color: "#999999", styles: "right-[3.5rem] bottom-[1rem]", rotate: 20 },
+        { size: 40, color: "#777777", styles: "right-[3.5rem] bottom-[5rem]", rotate: 0 },
+        { size: 40, color: "#777777", styles: "right-[6.5rem] bottom-[5rem]", rotate: 0 },
+        { size: 40, color: "#444444", styles: "right-[6.5rem] bottom-[9rem]", rotate: -20 },
+        { size: 40, color: "#444444", styles: "right-[9.5rem] bottom-[9rem]", rotate: -20 },
+        { size: 50, color: "#222222", styles: "right-[9.5rem] bottom-[12rem]", rotate: -40 },
+        { size: 50, color: "#222222", styles: "right-[12.5rem] bottom-[12rem]", rotate: -40 },
+        { size: 50, color: "#000000", styles: "right-[18.5rem] bottom-[12rem]", rotate: -120 },
+        { size: 50, color: "#000000", styles: "right-[21.5rem] bottom-[12rem]", rotate: -120 },
+        { size: 60, color: "#444444", styles: "right-[21.5rem] bottom-[7rem]", rotate: -150 },
+        { size: 60, color: "#444444", styles: "right-[24.5rem] bottom-[7rem]", rotate: -150 },
+        { size: 70, color: "#888888", styles: "right-[22.5rem] bottom-[2rem]", rotate: -140 },
+        { size: 70, color: "#888888", styles: "right-[25.5rem] bottom-[2rem]", rotate: -140 },
+      ];
   return (
     <div>
-        <div className='bg-[#CCFF41] px-20 w-full py-4 rounded-2xl'>
+        <div className='relative bg-[#CCFF41] px-20 w-full py-4 rounded-2xl'>
             <h1 className='text-[3rem] font-[500]'>Contact Us</h1>
             <form className='relative bg-white w-[60%] h-36 rounded-2xl border-1 border-b-4 border-r-4 border-black'>
                 <textarea placeholder='Enter your query....' className='outline-none resize-none w-full h-full rounded-2xl p-2'/>
@@ -14,6 +49,19 @@ export default function Contact() {
     </svg>
                 </button>
             </form>
+            {pawData.map((paw, index) => (
+          <motion.div
+            key={index}
+            className={`absolute ${paw.styles}`}
+            custom={index} // Pass index directly for staggered delay
+            initial="hidden"
+            animate="visible"
+            variants={pawVariants}
+          >
+            <Paw size={paw.size} color={paw.color} rotation={paw.rotate} />
+          </motion.div>
+        ))}
+
         </div>
         <div className='py-2 text-gray-500 text-xl text-center'>
             STAR THIS PROJECT
