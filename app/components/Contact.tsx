@@ -9,10 +9,9 @@ export default function Contact() {
         hidden: { opacity: 0}, // Initial state (hidden)
         visible: (index: number) => ({
           opacity: 1,
-          y: 0,
           transition: {
-            delay: index * 0.2, // Stagger appearance
-            duration: 2,
+            delay: index * 0.8, // Stagger appearance
+            duration: 2.4,
             repeat: Infinity, // Infinite loop
             repeatType: "reverse", // Alternate forward and backward motion
             ease: "easeInOut",

@@ -51,8 +51,9 @@ export default function Form() {
                                 <input placeholder='Activity Level' className='w-[32%] outline-none focus:ring-2 focus:ring-yellow-400 border border-black border-1 rounded-3xl py-2 text-center'/>
                             </div>
                         </div>
-                        <div className='bg-white border border-black border-1 rounded-2xl p-4'>
-
+                        <div className='bg-white border border-black border-1 rounded-[2.5rem] p-4'>
+                          <div className='text-xl  font-semibold text-gray-800 text-center'>Family Details</div>
+                          <input placeholder='Number of People is your household' className='outline-none focus:ring-2 focus:ring-yellow-400 border border-black border-1 rounded-3xl py-2 text-center'/>
                         </div>
                     </div>
                 </div>
